@@ -55,7 +55,9 @@ const ContactForm = ({ formSubmit }) => {
           onChange={handleChange}
         />
       </Label>
-      <Button type="submit">Add Contact</Button>
+      <Button type="submit" disabled={!name || !number}>
+        Add Contact
+      </Button>
     </Form>
   );
 };
