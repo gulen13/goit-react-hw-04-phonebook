@@ -11,6 +11,10 @@ const App = () => {
   );
   const [filter, setfilter] = useState('');
 
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
   const handleSubmit = (name, number) => {
     const existingName = contacts.some(item => item.name === name);
     const existingNumber = contacts.find(item => item.number === number);
@@ -45,10 +49,6 @@ const App = () => {
       prevContacts.filter(contact => contact.id !== id)
     );
   };
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const visibleContacts = getVisibleContacts();
 
