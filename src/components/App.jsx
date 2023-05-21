@@ -6,9 +6,9 @@ import ContactList from './ContactList/ContactList';
 import { Container } from './App.styled';
 
 const App = () => {
-  const localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
-
-  const [contacts, setcontacts] = useState(() => localStorageContacts);
+  const [contacts, setcontacts] = useState(
+    () => JSON.parse(localStorage.getItem('contacts')) || []
+  );
   const [filter, setfilter] = useState('');
 
   const handleSubmit = (name, number) => {
