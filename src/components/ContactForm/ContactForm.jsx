@@ -31,11 +31,15 @@ const ContactForm = ({ formSubmit }) => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    resetField,
+    formState: { errors, isDirty },
   } = useForm();
 
-  const onSubmit = ({ name, number }) => formSubmit(name, number);
+  const onSubmit = ({ name, number }) => {
+    formSubmit(name, number);
+    resetField('name');
+    resetField('number');
+  };
 
   // console.log(watch('example'));
 
@@ -71,7 +75,9 @@ const ContactForm = ({ formSubmit }) => {
         />
         {errors.number && <span>This field is required</span>}
       </Label>
-      <Button type="submit">Add Contact</Button>
+      <Button type="submit" disabled={!isDirty}>
+        Add Contact
+      </Button>
     </Form>
   );
 };
