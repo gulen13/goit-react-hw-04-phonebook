@@ -9,15 +9,17 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label`
-display: flex;
-flex-direction: column;
-gap: 10px;
-margin-bottom: 10px;
-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 200px;
 `;
 
 export const Input = styled.input`
-height: 25px;
+  height: 25px;
+  border: 1px solid #080903;
+  border-radius: 6px;
 `;
 
 export const Button = styled.button`
@@ -25,6 +27,6 @@ export const Button = styled.button`
   font-size: small;
   padding: 5px 10px;
   border-radius: 10px;
-  background-color: #75bfc8;
+  background-color: #48a567;
   cursor: pointer;
 `;
